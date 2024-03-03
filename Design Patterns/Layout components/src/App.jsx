@@ -1,35 +1,18 @@
+LargeListitem;
 import LargeListitem from "./components/Authors/LargeListitem";
-import SmallListitem from "./components/Authors/SmallListitem";
-import LargeBooksListitem from "./components/Books/LargeListitem";
-import SmallBooksListitem from "./components/Books/SmallListitem";
 import RegularList from "./components/Lists/Regular";
+import Modal from "./components/Modal/Modal";
 import { authors } from "./data/authors";
-import { books } from "./data/books";
 
 const App = () => {
   return (
-    <>
-      <RegularList
-        items={authors}
-        sourceName={"author"}
-        ItemComponent={SmallListitem}
-      />
+    <Modal>
       <RegularList
         items={authors}
         sourceName={"author"}
         ItemComponent={LargeListitem}
       />
-      <RegularList
-        items={books}
-        sourceName={"book"}
-        ItemComponent={SmallBooksListitem}
-      />
-      <RegularList
-        items={books}
-        sourceName={"book"}
-        ItemComponent={LargeBooksListitem}
-      />
-    </>
+    </Modal>
   );
 };
 
