@@ -1,25 +1,36 @@
-// import "./App.css";
-import SplitScreen from "./components/SplitScreen";
+import LargeListitem from "./components/Authors/LargeListitem";
+import SmallListitem from "./components/Authors/SmallListitem";
+import LargeBooksListitem from "./components/Books/LargeListitem";
+import SmallBooksListitem from "./components/Books/SmallListitem";
+import RegularList from "./components/Lists/Regular";
+import { authors } from "./data/authors";
+import { books } from "./data/books";
 
-// eslint-disable-next-line react/prop-types
-function LeftSideComponent({ title }) {
-  return <h2 style={{ backgroundColor: "red" }}>{title}</h2>;
-}
-
-// eslint-disable-next-line react/prop-types
-function RightSideComponent({ title }) {
-  return <h2 style={{ backgroundColor: "blue" }}>{title}</h2>;
-}
-
-function App() {
+const App = () => {
   return (
     <>
-      <SplitScreen leftWidth={1} rightWidth={2}>
-        <LeftSideComponent title="I am on the Left side" />
-        <RightSideComponent title="I am on the Right side" />
-      </SplitScreen>
+      <RegularList
+        items={authors}
+        sourceName={"author"}
+        ItemComponent={SmallListitem}
+      />
+      <RegularList
+        items={authors}
+        sourceName={"author"}
+        ItemComponent={LargeListitem}
+      />
+      <RegularList
+        items={books}
+        sourceName={"book"}
+        ItemComponent={SmallBooksListitem}
+      />
+      <RegularList
+        items={books}
+        sourceName={"book"}
+        ItemComponent={LargeBooksListitem}
+      />
     </>
   );
-}
+};
 
 export default App;
